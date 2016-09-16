@@ -1,7 +1,31 @@
 # RavenSystems MultiBoot Drive
 
+This is set of grub configuration files, that allows booting multiple GNU/Linux distributions ISO images from single device.
+GRUB2 is decorated using [RavenSystems GRUB2 Theme](https://github.com/ravensys/grub2-ravensys-theme).
 
-## Preparing USB Flash Disk
+Currently supported images are:
+* CentOS 7 DVD  (CentOS-7-x86_64-DVD-1511.iso)
+* CentOS 7 NetInstall  (CentOS-7-x86_64-NetInstall-1511.iso)
+* CloneZilla 2.4.7 Live  (clonezilla-live-2.4.7-8-amd64.iso)
+* Debian 8.5.0 Live GNOME Desktop  (debian-live-8.5.0-amd64-gnome-desktop.iso)
+* Fedora Workstation 24 Live  (Fedora-Workstation-Live-x86_64-24-1.2.iso)
+* Fedora Workstation 24 NetInstall  (Fedora-Workstation-netinst-x86_64-24-1.2.iso)
+* Kali Linux 2016.2 Live  (kali-linux-2016.2-amd64.iso)
+* SystemRescueCD 4.8.1  (systemrescuecd-x86-4.8.1.iso)
+* Tails Linux 2.5  (tails-i386-2.5.iso)
+
+To enable GRUB menu entry for any of these simply put downloaded ISO image into distribution specific directory on drive
+inside `/iso` directory, supported distribution directories are:
+* `centos`
+* `clonezilla`
+* `debian`
+* `fedora`
+* `kali`
+* `systemrescuecd`
+* `tails`
+
+
+## Prepare USB Flash Disk
 
 ### Create and format partitions
 
@@ -105,6 +129,23 @@ Install GRUB2 for BIOS systems by running:
 sudo grub2-install --target=i386-pc --boot-directory=/mnt/multiboot/boot --recheck /dev/sdX
 ```
 
+
+## Installation
+
+To install simply clone this git repository to the root of the drive:
+
+```
+$ git clone https://github.com/ravensys/multiboot-drive.git /DATA_MOUNTPOINT
+```
+
+If git is not present on system, installation can alternatively be made using wget and tar:
+
+```
+$ wget "https://github.com/ravensys/multiboot-drive/tarball/master" -O - | tar xvz --strip-components 1 --exclude={README.md,LICENSE.md}
+```
+
+
 ## Credits
 This project is mostly based on ArchLinux wiki article [Multiboot USB drive](https://wiki.archlinux.org/index.php/Multiboot_USB_drive) 
 and [Multiboot USB](https://github.com/aguslr/multibootusb) project.
+
