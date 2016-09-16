@@ -106,4 +106,5 @@ sudo grub2-install --target=i386-pc --boot-directory=/mnt/multiboot/boot --reche
 ```
 
 ## Credits
-This project is mostly based on ArchLinux wiki article [Multiboot USB drive](https://wiki.archlinux.org/index.php/Multiboot_USB_drive).
+This project is mostly based on ArchLinux wiki article [Multiboot USB drive](https://wiki.archlinux.org/index.php/Multiboot_USB_drive) 
+and [Multiboot USB](https://github.com/aguslr/multibootusb) project.
